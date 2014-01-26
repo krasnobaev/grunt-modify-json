@@ -1,7 +1,7 @@
 {
   "name": "grunt-modify-json",
   "description": "Add or update properties of a JSON file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/aarongloege/grunt-modify-json",
   "author": {
     "name": "Aaron Gloege",
