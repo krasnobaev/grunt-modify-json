@@ -23,7 +23,8 @@ module.exports = function(grunt) {
                   fields: {
                       "test": 11435,
                       "width": 143
-                  }
+                  },
+                  indent: 2
               }
           }
       }
