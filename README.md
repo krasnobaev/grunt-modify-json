@@ -41,13 +41,19 @@ grunt.initConfig({
 Type: `Boolean`
 Default value: `false`
 
-If `true`, properties if `fields` will be added to JSON file(s) regardless of whether the key exists.
+If `true`, properties of `fields` will be added to JSON file(s) regardless of whether the key exists.
 
 #### options.fields
 Type: `Object`
 Default value: `{}`
 
 A key-value pair object of properties to set in JSON file(s).
+
+#### options.indent
+Type: `Number` or `String` or `Null`
+Default value: `4`
+
+For instance the number `2` to use two space characters for indentation or `"\t"` to use tabs. Or `null` to disable pretty-printing.
 
 ### Usage Examples
 
@@ -61,7 +67,8 @@ grunt.initConfig({
       add: true,
       fields: {
         version: "1.1.1"
-      }
+      },
+      indent: "\t"
     },
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
