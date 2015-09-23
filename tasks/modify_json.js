@@ -17,7 +17,8 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             fields: {},
-            add: false
+            add: false,
+            indent: 4
         });
 
         // Iterate over all specified file groups.
@@ -49,7 +50,7 @@ module.exports = function(grunt) {
                     return file;
                 })
                 .map(function(file) {
-                    grunt.file.write(file.path, JSON.stringify(file.json, null, 4));
+                    grunt.file.write(file.path, JSON.stringify(file.json, null, options.indent));
                     grunt.log.success('File ' + file.path + ' updated.');
                 });
         });
