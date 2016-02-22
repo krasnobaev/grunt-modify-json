@@ -43,7 +43,15 @@ module.exports = function(grunt) {
                     Object.keys(options.fields).forEach(function(key) {
                         var value = options.fields[key];
                         if (options.add === true || file.json.hasOwnProperty(key)) {
-                            file.json[key] = value;
+
+                            /** @todo implement deep merge */
+                            if (typeof file.json[key] === "object") { // attempt to merge objects
+                                for (var attrname in value) {
+                                    file.json[key][attrname] = value[attrname];
+                                }
+                            } else { // overwrite file with new object
+                                file.json[key] = value;
+                            }
                         }
                     });
 
