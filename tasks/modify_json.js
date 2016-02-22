@@ -47,7 +47,13 @@ module.exports = function(grunt) {
                             /** @todo implement deep merge */
                             if (typeof file.json[key] === "object") { // attempt to merge objects
                                 for (var attrname in value) {
-                                    file.json[key][attrname] = value[attrname];
+                                    if (typeof file.json[key][attrname] === "object") {
+                                        for (var attrname2 in value[attrname]) {
+                                            file.json[key][attrname][attrname2] = value[attrname][attrname2];
+                                        }
+                                    } else {
+                                        file.json[key][attrname] = value[attrname];
+                                    }
                                 }
                             } else { // overwrite file with new object
                                 file.json[key] = value;
